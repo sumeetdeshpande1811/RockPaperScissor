@@ -1,44 +1,90 @@
 // src/components/Signup.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import './Login.css'; 
 
 const Signup = ({ history }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const navigate = useNavigate();
 
   const handleSignup = async () => {
     try {
+  
+      if (!username.includes('@')) {
+       alert('Username must be an email address.');
+        return;
+      }
+
       const response = await axios.post('http://localhost:8000/signup', {
         username,
         password,
       });
-      console.log(response.data);
-      // Redirect to login page after successful signup
-      history.push('/login'); // Assuming '/login' is the route for the login page
+  
+    
+        alert("created Successfully");
+        navigate('/login');
+      
+      console.log("herere");
+
     } catch (error) {
-      console.error(error.response.data);
+      if (error.response.status === 409) {
+        alert('Username already exists. Please choose a different one.');
+      }
+      else{
+        alert('An error occurred. Please try again later.');
+      }
+
     }
   };
 
   return (
+    // <div className="container">
+    //   <h2>Signup</h2>
+    //   <div className="input-group">
+    //     <input type="text"  value={username} onChange={(e) => setUsername(e.target.value)} />
+    //     <label>Username</label>
+    //   </div>
+    //   <div className="input-group">
+    //     <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)} />
+    //     <label>Password</label>
+    //   </div>
+    //   <div className="button-group">
+    //     <button onClick={handleSignup}>Signup</button>
+    //   </div>
+    //   <div>
+    //     Already have an account? <Link to="/login">Login</Link>
+    //   </div>
+    // </div>
     <div className="container">
-      <h2>Signup</h2>
-      <div className="input-group">
-        <input type="text"  value={username} onChange={(e) => setUsername(e.target.value)} />
-        <label>Username</label>
-      </div>
-      <div className="input-group">
-        <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)} />
-        <label>Password</label>
-      </div>
-      <div className="button-group">
-        <button onClick={handleSignup}>Signup</button>
-      </div>
-      <div>
-        Already have an account? <Link to="/login">Login</Link>
+    <div className="row justify-content-center align-items-center vh-100">
+      <div className="col-lg-6 col-md-8">
+        <div className="card p-4">
+        <h2 className="text-center mb-4">✨ Signup 📝</h2>
+          <form>
+          <div className="mb-3">
+       
+              <input type="text" className="form-control-3" placeholder='Name' id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+            </div>
+            <div className="mb-3">
+             
+              <input type="text" className="form-control" placeholder='Email' id="username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+            </div>
+            <div className="mb-3">
+   
+              <input type="password" className="form-control-1" placeholder='password' id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            </div>
+            <div className="mb-3 d-grid">
+              <button type="button" className="btn btn-primary btn-lg" onClick={handleSignup}>Register</button>
+            </div>
+            <p className="mb-0 text-center"> Already have an account?  <Link to="/login">Login</Link></p>
+          </form>
+        </div>
       </div>
     </div>
+  </div>
   );
 };
 

@@ -1,8 +1,9 @@
-/* src/components/Login.css */
+
 body {
-    background-color: #0c1e31; /* Dark background color for the entire page */
-    color: #fff; /* Text color for the entire page */
-    font-family: Arial, sans-serif; /* Font family for the entire page */
+    background-color: #0c1e31; 
+    color: #fff; 
+    font-family: Arial, sans-serif; 
+    background-image: url(p1.gif);
   }
   
   .container {
@@ -19,8 +20,22 @@ body {
   }
   
   .form-control {
-    margin-bottom: 30px; /* Increased margin between form controls */
+    margin-bottom: 30px; 
+    margin-left: 50px;
+    height: 50px;
+    width: 300px;
   }
+  .form-control-1,.form-control-3{
+    margin-bottom: 30px; 
+    margin-left: 50px;
+    height: 50px;
+    width: 300px;
+  }
+
+  h2{
+    margin-left: 125px;
+  }
+ 
   
   .input-group {
     position: relative;
@@ -28,7 +43,7 @@ body {
   
   .input-group input {
     width: 380px;
-    padding: 15px; /* Increased padding for text fields */
+    padding: 15px; 
     border-radius: 5px;
     border: 1px solid #ccc;
     color: #000; /* Text color for text fields */
@@ -57,19 +72,67 @@ body {
   .button-group {
     display: flex;
     justify-content: space-between;
+   
   }
-  
+  #register{
+    margin-left: 50px;
+  }
   .button-group button {
-    padding: 12px 20px; /* Increased padding for buttons */
+    padding: 12px 20px; 
     border: none;
     border-radius: 5px;
-    background-color: #ff69b4; /* Pink background color for buttons */
-    color: #fff; /* Text color for buttons */
+    background-color: #ff69b4; 
+    color: #fff; 
     cursor: pointer;
+    margin-left: 100px;
+    
     transition: background-color 0.3s ease;
   }
   
   .button-group button:hover {
-    background-color: #ff1493; /* Darker pink on hover */
+    background-color: #ff1493; 
+    margin-left: 100px;
+  }
+  btn btn-primary btn-lg{
+    margin-left: 200px;
+  }
+
+  .App {
+    text-align: center;
   }
   
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

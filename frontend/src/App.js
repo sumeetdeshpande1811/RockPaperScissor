@@ -6,6 +6,7 @@ import React from 'react';
 import Games from './components/Games';
 // import Games from './components/Games'
 import Profile from './components/Profile';
+import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
@@ -18,10 +19,10 @@ function App() {
       <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/game"
-          element={<Games />}
-        />
+        <Route element={<PrivateRoute />}>
+                <Route element={<Games/>} path="/game"/>
+               
+            </Route>
 
       </Routes>
     </Router>
