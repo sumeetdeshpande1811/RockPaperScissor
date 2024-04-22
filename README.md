@@ -66,3 +66,22 @@ This project is a web-based implementation of the classic Rock Paper Scissors ga
 3. Open `http://localhost:3000` in your browser to view the application.
 
 
+## Database Schema 📊
+
+### User Collection
+
+```json
+{
+  "_id": "ObjectId (automatically generated)",
+  "username": "String (unique, required)",
+  "password": "String (hashed, required)",
+  "name": "String (required)",
+  "wins": "Number (default: 0)",
+  "losses": "Number (default: 0)",
+  "draws": "Number (default: 0)"
+}
+```
+
+## Architecture Diagram 📊
+
+![Architecture Diagram](dataflow.jpeg)
