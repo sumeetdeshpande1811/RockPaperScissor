@@ -19,6 +19,7 @@ const Login = () => {
       const token = response.data.token; 
       localStorage.setItem('token', token); 
       localStorage.setItem('username', username); 
+      localStorage.setItem('name', response.data.name); 
       navigate('/game');
     } catch (error) {
     alert("Invalid Username or password");

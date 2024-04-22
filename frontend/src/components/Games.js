@@ -98,19 +98,28 @@ const Img = () => {
   };
 
 
-  const handleLogout = () => {
-      
+  const handleLogout = async () => {
+    const t = localStorage.getItem("token");
     localStorage.removeItem("token");
     localStorage.removeItem("username");
-    navigate('/login');
-    
+    try {
+      const response = await axios.post('http://localhost:8000/logout', {
+        username,
+      }, {
+        headers: { Authorization: `Bearer ${t}` },
+      });
+      navigate('/login');
+    } catch (err) {
+      console.error(err);
+      navigate('/login');
+    }
   };
 
   return (
     <div className="main">
         <Navbar handleLogout={handleLogout} />
       <div className="Container">
-        <h2>Click to choose..</h2>
+        <h1>Click to choose..</h1>
         <span>Score_Card</span>
         <div className="scoreccard">
           <h3>Win :- {win}</h3>

@@ -130,6 +130,8 @@ span{
   font-size: 22px;
 }
 
+
+
 button{
   padding: 6px 10px;
   background: #d708f7;
@@ -145,6 +147,7 @@ button{
   width: 300px;
 
 }
+
 
 
   
@@ -193,6 +196,8 @@ border: none;
   body{
     box-sizing: content-box;
   }
+
+
  
   
 }

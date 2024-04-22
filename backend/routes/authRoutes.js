@@ -18,6 +18,7 @@ router.post('/signup', async (req, res) => {
     await newUser.save();
     return res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: error.message });
   }
 });
@@ -34,10 +35,12 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
     const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET,{expiresIn:'1h'});
-    res.json({ token });
+    res.json({ token:token,name:user.name });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
+
+
 
 module.exports = router;

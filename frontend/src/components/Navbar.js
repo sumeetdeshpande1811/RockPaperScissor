@@ -1,39 +1,49 @@
 import React from "react";
+import './Navbar.css'; // Import the CSS file
 
 const Navbar = ({ handleLogout }) => (
   <nav style={navStyle}>
     <ul style={ulStyle}>
-      <li style={liStyle}><button style={btnStyle} onClick={handleLogout}>Logout</button></li>
+      <li style={liStyle}>
+        <h3 id="welcome" style={welcomeStyle}>
+          Welcome {localStorage.getItem("name")}{" "}
+          <button style={btnStyle} onClick={handleLogout} id="logout">
+            Logout
+          </button>
+        </h3>
+      </li>
     </ul>
   </nav>
 );
 
-// CSS styles
 const navStyle = {
-  display: 'flex',
-  justifyContent: 'flex-end',
-  alignItems: 'right',
-  padding: '1rem', // Adjust as needed for spacing
-  
+  padding: '1rem',
 };
 
 const ulStyle = {
   listStyleType: 'none',
+  display: 'flex',
+  alignItems: 'center', 
 };
 
 const liStyle = {
-  marginRight: '1rem', 
+  marginRight: '1rem',
+};
 
+const welcomeStyle = {
+  marginBottom: '0.5rem', 
 };
 
 const btnStyle = {
   padding: '0.5rem 1rem',
-  backgroundColor: '#333',
+  backgroundColor: '#ff69b4',
   color: '#fff',
   border: 'none',
   borderRadius: '5px',
   cursor: 'pointer',
-  marginLeft: '65rem', 
+  marginLeft: '600px',
+  width: "100px",
+  height: "30px",
 };
 
 export default Navbar;

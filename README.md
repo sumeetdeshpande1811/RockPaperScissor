@@ -53,9 +53,7 @@ This project is a web-based implementation of the classic Rock Paper Scissors ga
 
 1. Start the backend server:
    ```
-   npm run server
-   # or
-   yarn run server
+   node app.js
    ```
 
 2. Start the frontend development server:

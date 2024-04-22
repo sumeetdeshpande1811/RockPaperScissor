@@ -21,6 +21,7 @@ const Signup = ({ history }) => {
       const response = await axios.post('http://localhost:8000/signup', {
         username,
         password,
+        name,
       });
   
     
@@ -30,6 +31,7 @@ const Signup = ({ history }) => {
       console.log("herere");
 
     } catch (error) {
+      console.log(error);
       if (error.response.status === 409) {
         alert('Username already exists. Please choose a different one.');
       }
@@ -41,23 +43,7 @@ const Signup = ({ history }) => {
   };
 
   return (
-    // <div className="container">
-    //   <h2>Signup</h2>
-    //   <div className="input-group">
-    //     <input type="text"  value={username} onChange={(e) => setUsername(e.target.value)} />
-    //     <label>Username</label>
-    //   </div>
-    //   <div className="input-group">
-    //     <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)} />
-    //     <label>Password</label>
-    //   </div>
-    //   <div className="button-group">
-    //     <button onClick={handleSignup}>Signup</button>
-    //   </div>
-    //   <div>
-    //     Already have an account? <Link to="/login">Login</Link>
-    //   </div>
-    // </div>
+   
     <div className="container">
     <div className="row justify-content-center align-items-center vh-100">
       <div className="col-lg-6 col-md-8">
@@ -79,7 +65,7 @@ const Signup = ({ history }) => {
             <div className="mb-3 d-grid">
               <button type="button" className="btn btn-primary btn-lg" onClick={handleSignup}>Register</button>
             </div>
-            <p className="mb-0 text-center"> Already have an account?  <Link to="/login">Login</Link></p>
+            <p className="mb-0 text-center" id="register"> Already have an account?  <Link to="/login">Login</Link></p>
           </form>
         </div>
       </div>
